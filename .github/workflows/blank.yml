@@ -20,3 +20,11 @@ jobs:
 
     steps:
       - run: docker pull $IMAGE
+
+
+  pull-super-linter:
+    needs: push
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: docker pull ghcr.io/github/super-linter:latest
