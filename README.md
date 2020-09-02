@@ -1,1 +1,1 @@
-# ghcr
+# ghcr.io tests
