@@ -5,18 +5,8 @@ env:
   IMAGE: ghcr.io/${{ github.repository }}/alpine
 
 jobs:
-  push:
+  pull-super-linter:
     runs-on: ubuntu-latest
 
     steps:
-      - run: docker pull alpine
-      - run: docker tag alpine $IMAGE
-      - run: docker login https://ghcr.io -u token -p ${{ secrets.GHCR_TOKEN }}
-      - run: docker push $IMAGE
-
-  pull:
-    needs: push
-    runs-on: ubuntu-latest
-
-    steps:
-      - run: docker pull $IMAGE
+      - run: docker pull ghcr.io/github/super-linter:latest
