@@ -8,5 +8,5 @@ jobs:
     steps:
       - run: docker pull alpine
       - run: docker tag alpine ghcr.io/${{ github.repository_owner }}/alpine
-      - run: docker login https://ghcr.io -u token -p ${{ github.token }}
+      - run: docker login https://ghcr.io -u token -p ${{ secrets.GHCR_TOKEN }}
       - run: docker push alpine ghcr.io/${{ github.repository_owner }}/alpine
