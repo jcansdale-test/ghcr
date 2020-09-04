@@ -2,7 +2,7 @@ on:
   push:
 
 env:
-  IMAGE: ghcr.io/${{ github.repository }}/alpine
+  IMAGE: ghcr.io/${{ github.repository }}/alpine2
 
 jobs:
   push:
