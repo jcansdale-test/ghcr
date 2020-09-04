@@ -11,7 +11,7 @@ jobs:
     steps:
       - run: docker pull alpine
       - run: docker tag alpine $IMAGE
-      - run: docker login https://ghcr.io -u token -p ${{ secrets.GHCR_TOKEN }}
+      - run: docker login https://ghcr.io/jcansdale-test/foo -u token -p ${{ secrets.GHCR_TOKEN }}
       - run: docker push $IMAGE
 
   pull:
