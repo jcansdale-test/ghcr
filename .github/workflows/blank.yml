@@ -9,8 +9,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - run: docker pull alpine
-      - run: docker tag alpine $IMAGE
+      - uses: actions/checkout@v2
+      - run: docker build -t $IMAGE
       - run: docker login https://ghcr.io -u token -p ${{ secrets.GHCR_TOKEN }}
       - run: docker push $IMAGE
 
