@@ -2,7 +2,7 @@ on:
   push:
 
 env:
-  IMAGE: ghcr.io/${{ github.repository }}/alpine2
+  IMAGE: ghcr.io/${{ github.repository }}/alpine
 
 jobs:
   push:
@@ -10,13 +10,13 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - run: docker build . -t $IMAGE
+      - run: docker build . -t ${{ env.IMAGE }}
       - run: docker login https://ghcr.io -u token -p ${{ secrets.GHCR_TOKEN }}
-      - run: docker push $IMAGE
+      - run: docker push ${{ env.IMAGE }}
 
   pull:
     needs: push
     runs-on: ubuntu-latest
 
     steps:
-      - run: docker pull $IMAGE
+      - run: docker pull ${{ env.IMAGE }}
