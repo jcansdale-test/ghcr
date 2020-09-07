@@ -10,7 +10,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - run: docker build . -t ${{ env.IMAGE }}
+      - run: docker build . -t ${{ env.IMAGE }} --label org.opencontainers.image.source=https://github.com/${{ github.repository }}
       - run: docker login https://ghcr.io -u token -p ${{ secrets.GHCR_TOKEN }}
       - run: docker push ${{ env.IMAGE }}
 
