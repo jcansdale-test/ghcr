@@ -25,4 +25,5 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - run: docker login https://ghcr.io -u token -p ${{ secrets.GHCR_TOKEN }}
       - run: docker pull ${{ env.IMAGE }}
