@@ -1,5 +1,7 @@
 on:
   push:
+  watch:
+    types: [started]
 
 env:
   IMAGE: ghcr.io/${{ github.repository }}/alpine
