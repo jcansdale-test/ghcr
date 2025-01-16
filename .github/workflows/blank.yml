@@ -17,7 +17,7 @@ jobs:
           --label org.opencontainers.image.url=https://github.com/${{ github.repository_owner }}/
           --label org.opencontainers.image.source=https://github.com/${{ github.repository }}/
           --label org.opencontainers.image.description="I am descriptive"
-      - run: docker login https://ghcr.io -u token -p ${{ secrets.GHCR_TOKEN }}
+      - run: docker login https://ghcr.io -u token -p ${{ secrets.GITHUB_TOKEN }}
       - run: docker push ${{ env.IMAGE }}
 
   pull:
@@ -25,6 +25,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - run: docker login https://ghcr.io -u token -p ${{ secrets.GHCR_TOKEN }}
+      - run: docker login https://ghcr.io -u token -p ${{ secrets.GITHUB_TOKEN }}
       - run: docker pull ${{ env.IMAGE }}
 
