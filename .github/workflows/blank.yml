@@ -4,7 +4,7 @@ on:
     types: [started]
 
 env:
-  IMAGE: ghcr.io/${{ github.repository }}/alpine
+  IMAGE: ghcr.io/${{ github.repository }}/alpine:new
 
 jobs:
   push:
